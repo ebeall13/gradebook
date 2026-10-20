@@ -7,6 +7,8 @@ def main():
 
     print_average("Science")
 
+    print_grades("Science")
+
 #Function takes in a class and grade, and adds the grade to the class if it already in the dictonary and if not, adds the class to the dict then the grade
 def addGrade(subject, grade):
     if grades.get(subject, -1) == -1:
@@ -14,13 +16,18 @@ def addGrade(subject, grade):
     else:
         grades.get(subject).append(grade)
 
+#Function takes in a class and prints the average grade
 def print_average(subject):
     average = 0
     for grade in grades.get(subject):
         average = average + grade
-
     average = average / len(grades.get(subject))
     print(average)
+
+def print_grades(subject):
+    for grade in grades.get(subject):
+        print(grade)
+    
 
 
 
