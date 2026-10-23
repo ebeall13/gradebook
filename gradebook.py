@@ -1,10 +1,9 @@
 grades = {"History": [92,93,80], "English": [82,94,87], "Math": [97,93,89], "Science": [92,91,88]}
-keys = list(grades.keys())
+
 def main():
-
-
     ans = True
     while (ans):
+        keys = list(grades.keys())
         print("Hello! Which of these would you like to see ? (1,2,3,4 or 5) \n 1. Print out each class and your average grade in that class (and your best and worst subjects) \n 2. Print out all you grades in a specific class (will indicate later) \n 3. Print out your total GPA \n 4. Add to your grades \n 5. Exit")
         user_choice = int(input(""))
         nums = [1,2,3,4,5]
