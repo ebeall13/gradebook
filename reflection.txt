@@ -1,0 +1,20 @@
+What is the general purpose of your program? (1-2 sentences)
+The General purpose of this program is to keep track of and organize the users grades and allow them to know their averages,
+GPA, and other things they may not be able to do just by looking at the assignment numbers. 
+
+Who are 2 possible expected users of your program? How does your program target them?
+One possible expected user of the program is students. This program targets students by giving them a place to keep track of their various grades
+organized by class, calculate their gpa (which they may need for academic related things), and find out their subjects in need of work.
+The other possible expected user is a teacher. A teacher could use this program to keep track of specific students, allowing them to see all
+their academic information in a easy place. My program targets them by allowing for teachers to add grades or subjects. 
+
+Consider all features of your program. Name one non-negotiable of your project and one feature that is nice-to-have. Why do you feel this is the case?
+One non-negotiable of the program is the method that finds the average grade. This essential because it fuels all the other methods as a helper method. 
+One feature that is nice to have but not essentail is the one that tells you your worst and best class. This isn't esstential because the program already 
+gives you your average in every class, so you could just look at that and see which one is your best.
+
+What are two improvements or additional features that could be included in future iterations of your project? What value would they add?
+One additional feature I think would be cool is a way to weight your grades. In normal high school, grades are generally so all worth the same thing,
+so it would add value to my program by making it more realistic and versatile.
+Another feature I would add is a teacher option, where the teacher can go in and edit grades or change them. I think this would add value to my program 
+by giving it more use and making it less prone to error (ex, a grade is added wrong)
