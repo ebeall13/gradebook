@@ -5,3 +5,5 @@
 ### Files:
 #### **gradebook.py** This file is the python file that contains all of the main methods for this program. It is linked to the csv file that is edited by the user through the gradebook file
 #### **reflection.txt**  This file is a reflection on my orginal reflection. I speak about the puropse and limtations of my file, as well as things I want to add
+#### **grades.csv**  This file is a csv file that is linked to my program so that the user can edit their grades (and it saves every time)
+#### **README.md**  This file is a guide to my program, descrbing the purpose of the program and the uses of each file.
