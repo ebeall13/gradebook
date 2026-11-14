@@ -51,6 +51,7 @@ def main():
             print("Leaving gradebook, thank you for using!")
             ans = False
     edit_csv(All_grade)
+    visualize_grades(All_grade)
 
 #Function takes in a class and grade, and adds the grade to the class if it already in the csv file and if not, adds the class to a dict then the file
 def addGrade(subject, grade, data):
@@ -145,6 +146,32 @@ def edit_csv(dat):
                 print("successfully stored in csv")
     except FileNotFoundError:
         print("no file found")  
+
+#function that takes the averages of each class in the csv file and visualizes it as a graph
+def visualize_grades(data):
+    chart = { }
+    great = 0
+    for sub in data:
+        printOut = ""
+        if(len(sub)> great):
+            great = len(sub)
+        aver = get_average(sub, data)
+        while(aver - 50 >= 0):
+            printOut = printOut + "X"
+            aver = aver - 50
+        while(aver - 5 >= 0):
+            printOut = printOut + "*"
+            aver = aver - 5
+        chart[sub]= printOut
+    for sub in data:
+        subEven = sub
+        while len(subEven) != great:
+            subEven = " " + subEven
+        print(subEven + ": " + chart.get(sub))
+
+
+        
+        
 
 if __name__ == '__main__':
     main()
