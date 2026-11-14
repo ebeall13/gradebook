@@ -1,7 +1,24 @@
 grades = {"History": [92,93,80], "English": [82,94,87], "Math": [97,93,89], "Science": [92,91,88]}
+import csv
 
 def main():
     ans = True
+    gradebook = { }
+    csv_N = 'gradebook/grades.csv'
+    try:
+        with open(csv_N, 'r') as f:
+            data = csv.reader(f)
+            for row in data:
+                if row:
+                    key = row[0]
+                    values = row[1:]
+                    gradebook[key] = values
+            print(gradebook)
+
+    except FileNotFoundError:
+        print("no file found")
+
+
     while (ans):
         keys = list(grades.keys())
         print("Hello! Which of these would you like to see ? (1,2,3,4 or 5) \n 1. Print out each class and your average grade in that class (and your best and worst subjects) \n 2. Print out all you grades in a specific class (will indicate later) \n 3. Print out your total GPA \n 4. Add to your grades \n 5. Exit")
