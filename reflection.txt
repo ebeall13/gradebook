@@ -18,3 +18,26 @@ One additional feature I think would be cool is a way to weight your grades. In 
 so it would add value to my program by making it more realistic and versatile.
 Another feature I would add is a teacher option, where the teacher can go in and edit grades or change them. I think this would add value to my program 
 by giving it more use and making it less prone to error (ex, a grade is added wrong)
+
+Identify the type of data we are working with. Identify at least two categories the data could fit into and why.
+We are working with small data, as we generally will probably not have more than 10 classes and grades input into our grades csv file.
+We are also working with numerical data, as all the grades are numbers.
+We are also working with fairly low dimsenional data, as there is not much behind our data or anything to look closer on.
+Finally, we are working with labeled data as our data is all grades sorted by class.
+
+How do we handle our data in terms of the 5 C’s? In other words, what did we do to _____ our data, where the blank is filled in by each of the following:
+Collect: We collect data as the user uses the program, specifically through the addGrade function where they input their own grades.
+Cache: We Cache data when we put it in the data dict and then, after the program runs, add it to the csv file sorted by subject.
+Clean: To clean the data we do organize it by class in the csv file to make it more readable and eaiser to access. 
+Conclude: We analyze the data through our various functions that tell the user their averages by class, for all classes, and for finding their gpa.
+Convey: We convey the data mainly through our visualize_data function, which shows the average grade per class with X's and *'s
+
+What other questions can we ask about the data we’ve collected and analyzed? What is left to be desired?
+We can ask more about how much each asssignment if worth, as they may effect how we use each grade entered. We can also see HOW the 
+user is getting their grades by asking follow ups about their study methods. Finally, we could also separate classes by year
+and analyza how the users grades have changed over the years.
+
+
+
+
+
