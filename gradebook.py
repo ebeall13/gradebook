@@ -1,6 +1,6 @@
 grades = {"History": [92,93,80], "English": [82,94,87], "Math": [97,93,89], "Science": [92,91,88]}
 import csv
-csv_N = 'gradebook/grades.csv'
+csv_N = 'grades.csv'
 
 def main():
     ans = True
@@ -19,40 +19,41 @@ def main():
     except FileNotFoundError:
         print("no file found")  
 
-
+    All_grade = gradebook.copy()
     while (ans):
         keys = list(gradebook.keys())
-        data = gradebook.copy()
         print("Hello! Which of these would you like to see ? (1,2,3,4 or 5) \n 1. Print out each class and your average grade in that class (and your best and worst subjects) \n 2. Print out all you grades in a specific class (will indicate later) \n 3. Print out your total GPA \n 4. Add to your grades \n 5. Exit")
         user_choice = int(input(""))
         nums = [1,2,3,4,5]
         while(user_choice not in nums ):
             user_choice = int(input("Please try again! enter a number 1-5"))
         if user_choice == 1:
-            print_all_averages(data)
+            print_all_averages(All_grade)
         elif user_choice ==2:
             print("Current classes: ")
-            print_subs(data)
+            print_subs(All_grade)
             class_name = (input("Which class would you like to print your grades for?")).lower()
             while(class_name not in keys):
                 class_name = (input("Please try again! enter a class")).lower()
-            print_grades(class_name, data)
+            print_grades(class_name,  All_grade)
         elif user_choice ==3:
-            print("Your GPA is ", get_GPA(data))
+            print("Your GPA is ", get_GPA( All_grade))
         elif user_choice ==4:
             sub = (input("Which subject would you like to add a grade to?")).lower()
             grade = int(input("What is the grade you would like to add?"))
-            addGrade(sub , grade, data)
+            addGrade(sub , grade,  All_grade)
             print("Added!")
         elif user_choice ==5:
+            print("Leaving gradebook, thank you for using!")
             ans = False
+    edit_csv(All_grade)
 
-#Function takes in a class and grade, and adds the grade to the class if it already in the dictonary and if not, adds the class to the dict then the grade
+#Function takes in a class and grade, and adds the grade to the class if it already in the csv file and if not, adds the class to a dict then the file
 def addGrade(subject, grade, data):
     if data.get(subject, -1) == -1:
-        data.update({subject: [grade]})
+        data[subject] = [grade]
     else:
-        data.get(subject).append(grade)
+        data[subject].append(grade)
 
 #Function takes in a class and prints the average grade
 def print_average(subject, data):
@@ -119,18 +120,15 @@ def print_subs(data):
         print(sub)
 
 #function that edits the added data to the csv file
-def edit_csv(data):
+def edit_csv(dat):
     try:
         with open(csv_N, 'w', newline= "") as file:
             writer = csv.writer(file)
-            for key, value in data.items():
-                writer.writerow([key, value])
+            for key, value in dat.items():
+                writer.writerow([key, *value])
                 print("successfully stored in csv")
     except FileNotFoundError:
         print("no file found")  
-
-
-
 
 if __name__ == '__main__':
     main()
