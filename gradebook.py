@@ -22,9 +22,9 @@ def main():
     All_grade = gradebook.copy()
     while (ans):
         keys = list(gradebook.keys())
-        print("Hello! Which of these would you like to see ? (1,2,3,4 or 5) \n 1. Print out each class and your average grade in that class (and your best and worst subjects) \n 2. Print out all you grades in a specific class (will indicate later) \n 3. Print out your total GPA \n 4. Add to your grades \n 5. Exit")
+        print("Hello! Which of these would you like to see ? (1,2,3,4 or 5) \n 1. Print out each class and your average grade in that class (and your best and worst subjects) \n 2. Print out all you grades in a specific class (will indicate later) \n 3. Print out your total GPA \n 4. Add to your grades\n 5. remove a grade from grades \n 6. Exit")
         user_choice = int(input(""))
-        nums = [1,2,3,4,5]
+        nums = [1,2,3,4,5,6]
         while(user_choice not in nums ):
             user_choice = int(input("Please try again! enter a number 1-5"))
         if user_choice == 1:
@@ -44,6 +44,10 @@ def main():
             addGrade(sub , grade,  All_grade)
             print("Added!")
         elif user_choice ==5:
+            sub = (input("Which subject would you like to remove a grade from?")).lower()
+            grade = input("What is the grade you would like to remove?")
+            removeGrade(sub , grade,  All_grade)
+        elif user_choice ==6:
             print("Leaving gradebook, thank you for using!")
             ans = False
     edit_csv(All_grade)
@@ -54,6 +58,18 @@ def addGrade(subject, grade, data):
         data[subject] = [grade]
     else:
         data[subject].append(grade)
+
+#function removes the grade the user gives for the subject the user gives
+def removeGrade(subject, grade, data):
+    if data.get(subject, -1) == -1:
+        print("Nothing was removed, as there is no subject " , subject)
+    else:
+        if grade in data[subject]:
+            data[subject].remove(grade)
+            print("grade was removed from subject!")
+        else:
+            print("Nothing was removed because that grade is not in the list")
+
 
 #Function takes in a class and prints the average grade
 def print_average(subject, data):
