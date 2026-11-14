@@ -22,7 +22,7 @@ def main():
     All_grade = gradebook.copy()
     while (ans):
         keys = list(gradebook.keys())
-        print("Hello! Which of these would you like to see ? (1,2,3,4 or 5) \n 1. Print out each class and your average grade in that class (and your best and worst subjects) \n 2. Print out all you grades in a specific class (will indicate later) \n 3. Print out your total GPA \n 4. Add to your grades\n 5. remove a grade from grades \n 6. Exit")
+        print("Hello! Which of these would you like to see ? (1,2,3,4, 5 or 6) \n 1. Print out each class and your average grade in that class (and your best and worst subjects) \n 2. Print out all you grades in a specific class (will indicate later) \n 3. Print out your total GPA \n 4. Add to your grades\n 5. remove a grade from grades \n 6. Exit")
         user_choice = int(input(""))
         nums = [1,2,3,4,5,6]
         while(user_choice not in nums ):
@@ -163,6 +163,7 @@ def visualize_grades(data):
             printOut = printOut + "*"
             aver = aver - 5
         chart[sub]= printOut
+    print("A Bar Fraph of Grades by Class, where X=50% and *=5%:")
     for sub in data:
         subEven = sub
         while len(subEven) != great:
